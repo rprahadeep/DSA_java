@@ -42,10 +42,10 @@ public class BinaryTree {
     }
 
     private void display(Node node, String indent){
-        System.out.println(indent + node.val);
         if(node==null){
             return;
         }
+        System.out.println(indent + node.val);
         display(node.left, indent + "\t");
         display(node.right, indent + "\t");
 
