@@ -12,6 +12,7 @@ public class BinaryTree {
         int val = scanner.nextInt();
 
         Node node = new Node(val);
+        this.root = node;
 
         populate(scanner, node);
     }
