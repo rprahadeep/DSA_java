@@ -60,7 +60,7 @@ public class BinaryTree {
         if (node == null) {
             return;
         }
-        System.out.print(node.value + " ");
+        System.out.print(node.val + " ");
         preOrder(node.left);
         preOrder(node.right);
     }
@@ -74,7 +74,7 @@ public class BinaryTree {
             return;
         }
         preOrder(node.left);
-        System.out.print(node.value + " ");
+        System.out.print(node.val + " ");
         preOrder(node.right);
     }
 
@@ -88,7 +88,7 @@ public class BinaryTree {
         }
         preOrder(node.left);
         preOrder(node.right);
-        System.out.print(node.value + " ");
+        System.out.print(node.val + " ");
     }
 
 
