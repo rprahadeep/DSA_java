@@ -38,20 +38,6 @@ public class BinaryTree {
 
     }
 
-    public void display(){
-        display(root, " ");
-    }
-
-    private void display(Node node, String indent){
-        if(node==null){
-            return;
-        }
-        System.out.println(indent + node.val);
-        display(node.left, indent + "\t");
-        display(node.right, indent + "\t");
-
-    }
-
     public void preOrder() {
         preOrder(root);
     }
@@ -90,6 +76,30 @@ public class BinaryTree {
         postOrder(node.right);
         System.out.print(node.val + " ");
     }
+
+    public List<Integer> levelOrder(){
+        List<Integer> result = new ArrayList<>();
+        if(this.root==null) return result;
+
+        Queue<Node> q = new LinkedList<>();
+        q.offer(this.root);
+
+        while(!q.isEmpty()){
+            int l = q.size();
+            for(int i=0;i<l;i++){
+                Node current = q.poll();
+                result.add(current.val);
+                if(current.left!=null){
+                    q.offer(current.left);
+                }
+                if(current.right!=null){
+                    q.offer(current.right);
+                }
+            }
+        }
+        return result;
+    }
+
 
 
     class Node{
