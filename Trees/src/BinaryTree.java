@@ -100,6 +100,19 @@ public class BinaryTree {
         return result;
     }
 
+    public boolean isSymmetric(Node root){
+        if(root==null) return true;
+        return isSymmetricHelper(root.left, root.right);
+    }
+
+    public boolean isSymmetricHelper(Node left, Node right){
+        if(left==null && right==null) return true;
+        if(left==null || right==null) return false;
+        if(left.val!=right.val) return false;
+
+        return isSymmetricHelper(left.left, right.right) && isSymmetricHelper(left.right, right.left);
+    }
+
 
 
     class Node{
