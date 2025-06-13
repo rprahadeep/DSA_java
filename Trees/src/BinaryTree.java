@@ -113,8 +113,6 @@ public class BinaryTree {
         return isSymmetricHelper(left.left, right.right) && isSymmetricHelper(left.right, right.left);
     }
 
-
-
     class Node{
         int val;
         Node left;
