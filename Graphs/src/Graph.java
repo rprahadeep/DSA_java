@@ -6,7 +6,7 @@ public class Graph {
     ArrayList<Edge>[] graph;
 
     public class Edge{
-        int source;
+        int source;        
         int destination;
         int weight;
 
