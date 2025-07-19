@@ -1,15 +1,16 @@
 public class Main{
     public static void main(String[] args){
-        Graph graph =  new Graph(4);
-        graph.addEdge(0,2,2);
-        graph.addEdge(1,10,2);
-        graph.addEdge(1,0,3);
-        graph.addEdge(2,2,0);
-        graph.addEdge(2,10,1);
-        graph.addEdge(2,-1,3);
-        graph.addEdge(3,0,1);
-        graph.addEdge(3,-1,2);
+        Graph graph = new Graph(9, false);
+        graph.addEdge(1, 2);
+        graph.addEdge(1, 6);
+        graph.addEdge(2, 3);
+        graph.addEdge(2, 4);
+        graph.addEdge(4, 5);
+        graph.addEdge(5, 8);
+        graph.addEdge(6, 7);
+        graph.addEdge(6, 9);
+        graph.addEdge(7, 8);
 
-        graph.display();
+        graph.bfs(1);
     }
 }
