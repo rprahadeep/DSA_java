@@ -12,5 +12,7 @@ public class Main{
         graph.addEdge(7, 8);
 
         graph.bfs(1);
+
+        graph.dfs(1);
     }
 }
