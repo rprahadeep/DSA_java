@@ -73,4 +73,75 @@ public class Graph {
         }
     }
 
+    public boolean hasCycleBFS() {
+        boolean[] visited = new boolean[vertices];
+
+        for (int i = 1; i <= vertices; i++) {
+            if (!visited[i - 1]) {
+                if (bfsCycleCheck(i, visited)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private boolean bfsCycleCheck(int start, boolean[] visited) {
+        Queue<int[]> queue = new LinkedList<>();
+        queue.offer(new int[]{start, -1}); // {currentNode, parentNode}
+        visited[start - 1] = true;
+
+        while (!queue.isEmpty()) {
+            int[] current = queue.poll();
+            int node = current[0];
+            int parent = current[1];
+
+            for (int[] edge : graph.get(node - 1)) {
+                int neighbor = edge[1];
+
+                if (!visited[neighbor - 1]) {
+                    visited[neighbor - 1] = true;
+                    queue.offer(new int[]{neighbor, node});
+                } else if (neighbor != parent) {
+                    return true; // found a back-edge, hence a cycle
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public boolean hasCycleDFS() {
+        boolean[] visited = new boolean[vertices];
+
+        for (int i = 1; i <= vertices; i++) {
+            if (!visited[i - 1]) {
+                if (dfsCycleCheck(i, -1, visited)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private boolean dfsCycleCheck(int current, int parent, boolean[] visited) {
+        visited[current - 1] = true;
+
+        for (int[] edge : graph.get(current - 1)) {
+            int neighbor = edge[1];
+
+            if (!visited[neighbor - 1]) {
+                if (dfsCycleCheck(neighbor, current, visited)) {
+                    return true;
+                }
+            } else if (neighbor != parent) {
+                return true; // visited, but not parent => back edge → cycle
+            }
+        }
+
+        return false;
+    }
+
 }
