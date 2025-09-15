@@ -1,3 +1,5 @@
+package Algorithms;
+
 import java.util.*;
 
 
@@ -40,7 +42,7 @@ class Solution {
 
 }
 
-public class Directed {
+public class DirectedCycle {
     public static void main(String[] args) {
         int V = 11;
         ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
